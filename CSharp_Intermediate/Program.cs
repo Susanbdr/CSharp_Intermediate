@@ -8,16 +8,19 @@ namespace CSharp_Intermediate
         static void Main(string[] args)
         {
            
-            var post = new Post("Hello", "World");
-            post.PrintPost();
-            post.UpVote();
-            post.UpVote();
-            post.UpVote();
-            post.DownVote();
-            post.DownVote();
-            Console.Write("You have " + post.UpVoteCount() + " up votes & ");
-            Console.Write("You have " + post.DownVoteCount() + " down votes");
+            var stack = new Stack();
 
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            stack.Push(4);
+            stack.Push(5);
+
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+            stack.Clear();
+
+            
         }
     }
 }
