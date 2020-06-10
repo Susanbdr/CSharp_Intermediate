@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace CSharp_Intermediate
@@ -7,9 +8,18 @@ namespace CSharp_Intermediate
     {
         static void Main(string[] args)
         {
-          var dbCommand = new DbCommand(new OracleConnection("Oracle"), "Run" );
+           var workFlow = new WorkFlow();
+           workFlow.Add(new VideoEncoding());
+           workFlow.Add(new Upload());
 
-          dbCommand.Execute();
+           var workFlowEngine = new WorkFlowEngine();
+           workFlowEngine.Run(workFlow);
         }
+
+
+        
+        
     }
+
+   
 }
