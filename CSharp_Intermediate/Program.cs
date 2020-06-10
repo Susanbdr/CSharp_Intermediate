@@ -7,20 +7,23 @@ namespace CSharp_Intermediate
     {
         static void Main(string[] args)
         {
-           
-            var stack = new Stack();
+          var sqlConnection = new SqlConnection(null);
 
-            stack.Push(1);
-            stack.Push(2);
-            stack.Push(3);
-            stack.Push(4);
-            stack.Push(5);
+          sqlConnection.OpenConnection();
 
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Pop());
-            stack.Clear();
+          if(sqlConnection.TimeSpan.Milliseconds < 0)
+              Console.WriteLine("Connection Timed-Out");
+          else
+            sqlConnection.CloseConnection();
 
-            
+          var oracleConnection = new OracleConnection("oracle");
+
+          oracleConnection.OpenConnection();
+
+          if(oracleConnection.TimeSpan.Milliseconds < 0)
+              Console.WriteLine("Connection Timed-Out");
+          else
+              oracleConnection.CloseConnection();
         }
     }
 }
